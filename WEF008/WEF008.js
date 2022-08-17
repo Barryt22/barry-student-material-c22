@@ -6,9 +6,11 @@ let rows;    /* To be determined by window height */
 let currentBoard;
 let nextBoard;
 
+let fr = 5; 
 
 
 function setup(){
+    
 	/* Set the canvas to be under the element #canvas*/
 	const canvas = createCanvas(windowWidth, windowHeight - 100);
 	canvas.parent(document.querySelector('#canvas'));
@@ -33,7 +35,7 @@ function setup(){
 * Initialize/reset the board state
 */
 function  init() {
-    frameRate(10);
+    
 	for (let i = 0; i < columns; i++) {
 		for (let j = 0; j < rows; j++) {
 			currentBoard[i][j] = 0;
@@ -45,7 +47,8 @@ function  init() {
 function draw() {
     background(255);
     generate();
-    
+    frameRate(fr)
+
     for (let i = 0; i < columns; i++) {
         for (let j = 0; j < rows; j++) {
             if (currentBoard[i][j] == 1){
@@ -130,7 +133,14 @@ function mouseReleased() {
     loop();
 }
 
-document.querySelector('#reset-game')
-	.addEventListener('click', function() {
-		init();
+// document.querySelector('#reset-game')
+// 	.addEventListener('click', function() {
+// 		init();
+// 	});
+
+document.querySelector('.slider')
+.addEventListener('click', function(event) {
+    console.log(event.currentTarget.value);;
+    fr = parseInt(event.currentTarget.value)
+	frameRate(fr);
 	});
