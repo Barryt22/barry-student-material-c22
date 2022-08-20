@@ -6,8 +6,7 @@ let rows;    /* To be determined by window height */
 let currentBoard;
 let nextBoard;
 
-let fr = 5; 
-
+let fr = 5;
 
 function setup(){
     
@@ -35,7 +34,8 @@ function setup(){
 * Initialize/reset the board state
 */
 function  init() {
-    
+
+
 	for (let i = 0; i < columns; i++) {
 		for (let j = 0; j < rows; j++) {
 			currentBoard[i][j] = 0;
@@ -47,6 +47,7 @@ function  init() {
 function draw() {
     background(255);
     generate();
+    
     frameRate(fr)
 
     for (let i = 0; i < columns; i++) {
@@ -140,7 +141,7 @@ function mouseReleased() {
 
 document.querySelector('.slider')
 .addEventListener('click', function(event) {
-    console.log(event.currentTarget.value);;
-    fr = parseInt(event.currentTarget.value)
+    console.log(event.currentTarget.value);
+    fr = parseInt(event.currentTarget.value);
 	frameRate(fr);
 	});
