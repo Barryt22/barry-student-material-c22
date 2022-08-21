@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="project1-trail.css" />
+    <title>Game of life</title>
+</head>
+
+<body>
+    <div id='canvas'></div>
+    <div calss="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="slidecontainer">
+                    <span>FPS: 5-60</span><input type="range" min="5" max="60" value="5" class="slider" id="myRange">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div><button class="start-button">Stop Game</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="survival-button">
+                    <div>Survival difficult</div>
+                    <input type="radio" id="easyopt" name="pattern" value="easy">
+                    <label for="easyopt">Easy</label><br>
+
+                    <input type="radio" id="normalopt" name="pattern" value="normal">
+                    <label for="normalopt">Normal</label><br>
+
+                    <input type="radio" id="hardopt" name="pattern" value="hard">
+                    <label for="hardopt">Hard</label><br>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="reproduction-button">
+                    <div>Reproduction difficult</div>
+                    <input type="radio" id="easyopt2" name="pattern" value="easy2">
+                    <label for="easyopt2">Easy</label><br>
+
+                    <input type="radio" id="normalopt2" name="pattern" value="normal2">
+                    <label for="normalopt2">Normal</label><br>
+
+                    <input type="radio" id="hardopt2" name="pattern" value="hard2">
+                    <label for="hardopt2">Hard</label><br>
+                    <!-- <button class="reproduction-button">Easier reproduction</button>
+                    <p>Normal/easy/hard</p> -->
+                </div>
+            </div>
+        </div>
+        <div>Insert pattern</div>
+        <input type="radio" id="html" name="pattern" value="no">
+        <label for="html">No</label><br>
+
+        <input type="radio" id="pattern-bug" name="pattern" value="bug">
+        <label for="pattern-bug">bug</label><br>
+
+        <input type="radio" id="pattern-tree" name="pattern" value="tree">
+        <label for="pattern-tree">tree</label><br>
+
+        <input type="radio" id="pattern-ship" name="pattern" value="ship">
+        <label for="pattern-ship">ship</label>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+
+        <!-- <script src="./WEF008.js"></script> -->
+        <script src="./project1-trial.js"></script>
+        <script src="./pattern.js"></script>
+        <script src="./barry.js"></script>
+</body>
+
+</html>
