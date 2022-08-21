@@ -6,11 +6,13 @@ let rows;    /* To be determined by window height */
 let currentBoard;
 let nextBoard;
 let start = true;
-let survival = true;
+let selectedSurvival = "normal";
 let reproduction = true;
 let prevMouseX = 0
 let prevMouseY = 0
 let fr = 5;
+let a;
+let b;
 
 function setup() {
 
@@ -96,12 +98,23 @@ function generate() {
                 }
             }
 
+            //survival difficlut
+            // if (selectedSurvival = "normal") {
+            //     a = 2;
+            //     b = 3;
+            // } else if (selectedSurvival = "easy) {
+            //     a = 1;
+            // b = 6;
+            // } else (selectedSurvival = "hard") {
+            // a = 4;
+            // b = 1;
+            // }
             // Rules of Life - Normal
-            if (currentBoard[x][y] == 1 && neighbors < 2) {
+            if (currentBoard[x][y] == 1 && neighbors < a) {
                 // Die of Loneliness
                 nextBoard[x][y] = 0;
 
-            } else if (currentBoard[x][y] == 1 && neighbors > 3) {
+            } else if (currentBoard[x][y] == 1 && neighbors > b) {
                 // Die of Overpopulation
                 nextBoard[x][y] = 0;
 
@@ -114,41 +127,7 @@ function generate() {
                 nextBoard[x][y] = currentBoard[x][y];
             }
 
-            // Rules of Life - Easy
-            // if (currentBoard[x][y] == 1 && neighbors < 0) {
-            //     // Die of Loneliness
-            //     nextBoard[x][y] = 0;
 
-            // } else if (currentBoard[x][y] == 1 && neighbors > 30) {
-            //     // Die of Overpopulation
-            //     nextBoard[x][y] = 0;
-
-            // } else if (currentBoard[x][y] == 0 && neighbors == 3) {
-            //     // New life due to Reproduction
-
-            //     nextBoard[x][y] = 1;
-            // } else {
-            //     // Stasis
-            //     nextBoard[x][y] = currentBoard[x][y];
-            // }
-
-            // Rules of Life - Hard
-            // if (currentBoard[x][y] == 1 && neighbors < 2) {
-            //     // Die of Loneliness
-            //     nextBoard[x][y] = 0;
-
-            // } else if (currentBoard[x][y] == 1 && neighbors > 3) {
-            //     // Die of Overpopulation
-            //     nextBoard[x][y] = 0;
-
-            // } else if (currentBoard[x][y] == 0 && neighbors == 1) {
-            //     // New life due to Reproduction
-
-            //     nextBoard[x][y] = 1;
-            // } else {
-            //     // Stasis
-            //     nextBoard[x][y] = currentBoard[x][y];
-            // }
         }
     }
 
@@ -228,10 +207,10 @@ function updateBtn() {
     // }
     if (start) {
         start = false;
-        document.querySelector('.start-button').innerText = 'Start';
+        document.querySelector('.start-button').innerText = 'Start Game';
     } else {
         start = true;
-        document.querySelector('.start-button').innerText = 'stop';
+        document.querySelector('.start-button').innerText = 'Stop Game';
     }
 }
 
@@ -277,3 +256,10 @@ document.querySelector('.slider')
         frameRate(fr);
     });
 
+//survival difficulty
+let radioElems2 = document.querySelectorAll("[type=radio]")
+for (let radioElem2 of radioElems2) {
+    radioElem2.addEventListener('change', () => {
+        selectedSurvival = document.querySelector('input[name=pattern]:checked').value
+    })
+}

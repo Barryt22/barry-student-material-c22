@@ -131,9 +131,3 @@ for (let radioElem of radioElems) {
     })
 }
 
-let radioElems2 = document.querySelectorAll("[type=radio]")
-for (let radioElem2 of radioElems2) {
-    radioElem2.addEventListener('change', () => {
-        selectedSurvival = document.querySelector('input[name=pattern]:checked').value
-    })
-}
